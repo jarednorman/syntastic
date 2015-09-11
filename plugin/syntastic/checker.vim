@@ -127,7 +127,7 @@ endfunction " }}}2
 
 function! g:SyntasticChecker.getVersion(...) abort " {{{2
     if !exists('self._version')
-        let command = a:0 ? a:1 : self.getExecEscaped() . ' --version'
+        let command = a:0 ? a:1 : self.getExecEscaped() . ' --version 2> /dev/null'
         let version_output = syntastic#util#system(command)
         call self.log('getVersion: ' . string(command) . ': ' .
             \ string(split(version_output, "\n", 1)) .
